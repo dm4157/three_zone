@@ -2,6 +2,7 @@ package party.msdg.three_zone.model;
 
 import lombok.Data;
 import org.apache.commons.math3.analysis.function.Add;
+import party.msdg.three_zone.util.AddUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,12 +52,7 @@ public class Address {
             src = src.substring(0, location);
         }
         
-        int left = src.indexOf("(");
-        if (left == -1) return src;
-        
-        int right = src.indexOf(")");
-        src = src.substring(0, left) + src.substring(right+1);
-        
+        src = AddUtil.removeBracket(src);
         return src;
     }
     

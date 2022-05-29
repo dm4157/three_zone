@@ -21,4 +21,5 @@ public class User {
     private String state;
     
     private String region;
+    private String believe;
 }

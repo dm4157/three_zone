@@ -38,19 +38,11 @@ public class ExcelHandler {
     }
     
     public void write(List<User> users) {
-//        List<List<String>> data = new ArrayList<>();
-//        String tempFilePath = fileRice.taskPath(profile, task.getId());
-//        ExcelWriter writer = fileRice.createWriter(tempFilePath, columns);
-//        WriteSheet writeSheet = EasyExcel.writerSheet().build();
-//        writer.write(pageData, writeSheet);
-//        writer.finish();
         EasyExcel.write("/Users/stone/Desktop/员工三区分布.xls", User.class)
             .sheet("三区划分")
             .doWrite(() -> {
                 // 分页查询数据
                 return users;
             });
-    
     }
-    
 }

@@ -13,17 +13,20 @@ public class SearchHandler {
     public SearchHandler() {
         searchers = new ArrayList<>();
         searchers.add(new JinganSearcher());
+        searchers.add(new JiadingSearcher());
+        searchers.add(new XuhuiSearcher());
+        searchers.add(new BaoshanSearcher());
+        searchers.add(new MinhangSearcher());
     }
     
-    public Searcher find(String zone) {
-        Searcher se = null;
+    public List<Searcher> find(String zone) {
+        List<Searcher> match = new ArrayList<>();
         for (Searcher one : searchers) {
             if (one.support(zone)) {
-                se = one;
-                break;
+                match.add(one);
             }
         }
         
-        return se;
+        return match;
     }
 }
